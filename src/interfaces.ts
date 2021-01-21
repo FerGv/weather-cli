@@ -1,3 +1,6 @@
+// Libraries
+import { ParsedArgs } from 'minimist';
+
 interface Location {
   name: string;
   region: string;
@@ -46,4 +49,11 @@ export interface Weather {
   current: Current;
 }
 
-export type CsvRow = (string|number|boolean)[]
+export interface Argv extends ParsedArgs {
+  c?: string;
+  city?: string;
+  e?: boolean;
+  export?: boolean;
+}
+
+export type CsvRow = (string | number | boolean)[];

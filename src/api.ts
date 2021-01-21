@@ -1,6 +1,5 @@
 // Libraries
 import axios, { AxiosInstance, AxiosResponse } from 'axios';
-import { table } from 'table';
 
 // Config
 import config from './config';
@@ -10,7 +9,6 @@ import { CsvRow, Weather } from './interfaces';
 
 // Utils
 import { logError } from './utils/logging';
-import { exportToCsv } from './utils/file';
 
 /**
  * Consume 'Weather API'.
@@ -29,7 +27,7 @@ class WeatherApi {
    *
    * @param city - The city's name to look for weather information.
    */
-  async getCurrentWeather(city: string) {
+  async getCurrentWeather(city: string): Promise<CsvRow[]> {
     try {
       const res: AxiosResponse<Weather> = await this.request.get('current.json', {
         params: {
@@ -42,11 +40,13 @@ class WeatherApi {
         ['Location', 'Temperature', 'Units', 'Precipitation'],
         [location.name, current.temp_c, 'C', !!current.precip_mm]
       ];
-      console.log(table(rows));
-      exportToCsv(rows);
+
+      return rows;
     } catch (error) {
       logError(error);
     }
+
+    return [];
   }
 }
 
