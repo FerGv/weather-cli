@@ -21,3 +21,18 @@ $ npm run dev
 # Production
 $ npm run build && node dist/index.js
 ```
+
+## Options
+- -c, --city
+> Set city to look for weather information. Default: Dallas.
+```sh
+$ node dist/index.js -c Mexico City
+$ node dist/index.js --city Mexico City
+```
+
+- -e, --export
+> Export weather information as a CSV file. Default: false.
+```sh
+$ node dist/index.js -e
+$ node dist/index.js --export
+```
