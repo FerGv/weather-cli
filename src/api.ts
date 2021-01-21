@@ -6,10 +6,11 @@ import { table } from 'table';
 import config from './config';
 
 // Interfaces
-import { Weather } from './interfaces';
+import { CsvRow, Weather } from './interfaces';
 
 // Utils
-import { logError } from './utils';
+import { logError } from './utils/logging';
+import { exportToCsv } from './utils/file';
 
 /**
  * Consume 'Weather API'.
@@ -37,11 +38,12 @@ class WeatherApi {
         },
       });
       const { location, current } = res.data;
-      const tableOutput = table([
+      const rows: CsvRow[] = [
         ['Location', 'Temperature', 'Units', 'Precipitation'],
         [location.name, current.temp_c, 'C', !!current.precip_mm]
-      ]);
-      console.log(tableOutput);
+      ];
+      console.log(table(rows));
+      exportToCsv(rows);
     } catch (error) {
       logError(error);
     }

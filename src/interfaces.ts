@@ -45,3 +45,5 @@ export interface Weather {
   location: Location;
   current: Current;
 }
+
+export type CsvRow = (string|number|boolean)[]
