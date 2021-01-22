@@ -38,7 +38,7 @@ export function getDefaultFilePath(filename: string): string {
  *
  * @param rows - The CSV data.
  */
-export function exportToCsv(rows: CsvRow[], filename = 'weather.csv'): void {
+export function exportToCsv(rows: CsvRow[], filename: string): void {
   const fileContent = rows.map((row) => row.join(',')).join('\n');
   const filePath = getDefaultFilePath(filename);
   createFile(filePath, fileContent);

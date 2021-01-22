@@ -44,35 +44,33 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var chalk_1 = __importDefault(require("chalk"));
 var clear_1 = __importDefault(require("clear"));
 var figlet_1 = __importDefault(require("figlet"));
-var minimist_1 = __importDefault(require("minimist"));
 var table_1 = require("table");
 // API
 var api_1 = __importDefault(require("./api"));
 // Utils
 var file_1 = require("./utils/file");
+var parser_1 = require("./utils/parser");
 /**
  * Run main CLI process.
  */
 function main() {
     return __awaiter(this, void 0, void 0, function () {
-        var title, argv, city, export_, rows;
-        return __generator(this, function (_a) {
-            switch (_a.label) {
+        var title, _a, city, export_, filename, rows;
+        return __generator(this, function (_b) {
+            switch (_b.label) {
                 case 0:
                     clear_1.default();
                     title = figlet_1.default.textSync('Weather CLI');
                     console.log(chalk_1.default.cyan(title));
-                    argv = minimist_1.default(process.argv.slice(2));
-                    city = argv.c || argv.city || 'Dallas';
-                    export_ = argv.e || argv.export || false;
+                    _a = parser_1.parseArguments(process.argv.slice(2)), city = _a.city, export_ = _a.export_, filename = _a.filename;
                     return [4 /*yield*/, api_1.default.getCurrentWeather(city)];
                 case 1:
-                    rows = _a.sent();
+                    rows = _b.sent();
                     if (!rows.length)
                         process.exit();
                     console.log(table_1.table(rows));
                     if (export_) {
-                        file_1.exportToCsv(rows);
+                        file_1.exportToCsv(rows, filename);
                     }
                     return [2 /*return*/];
             }

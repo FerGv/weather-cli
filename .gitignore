@@ -6,3 +6,7 @@ node_modules
 
 # Env Vars
 .env
+
+# Exported files
+*.csv
+!weather.csv

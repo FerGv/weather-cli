@@ -41,7 +41,6 @@ exports.getDefaultFilePath = getDefaultFilePath;
  * @param rows - The CSV data.
  */
 function exportToCsv(rows, filename) {
-    if (filename === void 0) { filename = 'weather.csv'; }
     var fileContent = rows.map(function (row) { return row.join(','); }).join('\n');
     var filePath = getDefaultFilePath(filename);
     createFile(filePath, fileContent);

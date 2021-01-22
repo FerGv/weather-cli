@@ -49,11 +49,19 @@ export interface Weather {
   current: Current;
 }
 
-export interface Argv extends ParsedArgs {
+export interface MinimistArgv extends ParsedArgs {
   c?: string;
   city?: string;
   e?: boolean;
   export?: boolean;
+  f?: string;
+  filename?: string;
+}
+
+export interface Argv {
+  city: string;
+  export_: boolean;
+  filename: string;
 }
 
 export type CsvRow = (string | number | boolean)[];

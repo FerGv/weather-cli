@@ -11,10 +11,19 @@ export function logError(error: string): void {
 }
 
 /**
+ * Log a info message into console.
+ *
+ * @param text - The raised text.
+ */
+export function logInfo(text: string): void {
+  console.log(chalk.blue(text));
+}
+
+/**
  * Log a success message into console.
  *
- * @param error - The raised error.
+ * @param text - The raised text.
  */
-export function logSuccess(error: string): void {
-  console.log(chalk.green(error));
+export function logSuccess(text: string): void {
+  console.log(chalk.green(text));
 }
