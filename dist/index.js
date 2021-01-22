@@ -55,14 +55,18 @@ var parser_1 = require("./utils/parser");
  */
 function main() {
     return __awaiter(this, void 0, void 0, function () {
-        var title, _a, city, export_, filename, rows;
+        var title, _a, city, export_, filename, help, rows;
         return __generator(this, function (_b) {
             switch (_b.label) {
                 case 0:
                     clear_1.default();
                     title = figlet_1.default.textSync('Weather CLI');
                     console.log(chalk_1.default.cyan(title));
-                    _a = parser_1.parseArguments(process.argv.slice(2)), city = _a.city, export_ = _a.export_, filename = _a.filename;
+                    _a = parser_1.parseArguments(process.argv.slice(2)), city = _a.city, export_ = _a.export_, filename = _a.filename, help = _a.help;
+                    if (help) {
+                        parser_1.showHelp();
+                        process.exit();
+                    }
                     return [4 /*yield*/, api_1.default.getCurrentWeather(city)];
                 case 1:
                     rows = _b.sent();
