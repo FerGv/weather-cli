@@ -77,7 +77,8 @@ var WeatherApi = /** @class */ (function () {
                         _a = res.data, location_1 = _a.location, current = _a.current;
                         rows = [
                             ['Location', 'Temperature', 'Units', 'Precipitation'],
-                            [location_1.name, current.temp_c, 'C', !!current.precip_mm]
+                            [location_1.name, current.temp_c, 'C', !!current.precip_mm],
+                            [location_1.name, current.temp_f, 'F', !!current.precip_mm],
                         ];
                         return [2 /*return*/, rows];
                     case 2:

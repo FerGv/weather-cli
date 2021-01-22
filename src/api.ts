@@ -38,7 +38,8 @@ class WeatherApi {
       const { location, current } = res.data;
       const rows: CsvRow[] = [
         ['Location', 'Temperature', 'Units', 'Precipitation'],
-        [location.name, current.temp_c, 'C', !!current.precip_mm]
+        [location.name, current.temp_c, 'C', !!current.precip_mm],
+        [location.name, current.temp_f, 'F', !!current.precip_mm],
       ];
 
       return rows;
