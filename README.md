@@ -15,11 +15,14 @@ $ cp .env.example .env
 
 3. Run CLI.
 ```sh
-# Development
-$ npm run dev
+# Directly from file
+$ node dist/index.js
 
-# Production
-$ npm run build && node dist/index.js
+# As CLI
+# Create symbolic link. This command is just run once.
+$ npm link
+# After that, you can use CLI as a terminal command.
+$ weather-cli
 ```
 
 ## Options
@@ -31,8 +34,40 @@ $ node dist/index.js --city Mexico City
 ```
 
 - -e, --export
-> Export weather information as a CSV file. Default: false.
+> Export weather information as a CSV file called `weather.csv`. Default: false.
 ```sh
 $ node dist/index.js -e
 $ node dist/index.js --export
+```
+
+- -f, --filename
+> Name for exported file. Only available when export option is set. Default: weather.csv
+```sh
+$ node dist/index.js -e -f my_custom_name.csv
+$ node dist/index.js --export --filename my_custom_name.csv
+```
+
+- -h, --help
+> Show CLI help.
+```sh
+$ node dist/index.js -h
+$ node dist/index.js --help
+```
+
+## Development
+```sh
+# Watch changes
+$ npm run dev
+
+# Test CLI
+$ npx ts-node src/index.ts
+```
+
+## Production
+```sh
+# Transpile files
+$ npm run build
+
+# Test CLI
+$ node dist/index.js
 ```

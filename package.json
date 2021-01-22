@@ -2,7 +2,10 @@
   "name": "weather-cli",
   "version": "1.0.0",
   "description": "JS CLI to log weather in Dallas, TX",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "bin": {
+    "weather-cli": "./dist/index.js"
+  },
   "scripts": {
     "build": "tsc",
     "dev": "nodemon",

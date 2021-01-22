@@ -4,8 +4,5 @@ node_modules
 # Mac
 .DS_STORE
 
-# Build
-dist
-
 # Env Vars
 .env
