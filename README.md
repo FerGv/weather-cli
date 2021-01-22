@@ -5,15 +5,20 @@ JS CLI to consume [Weather API](https://www.weatherapi.com).
 ![Demo image](./demo.png "Demo image")
 
 ## Setup
-1. Copy `.env.example` file into a new one called `.env`.
+1. Install dependencies
+```sh
+$ npm i
+```
+
+2. Copy `.env.example` file into a new one called `.env`.
 ```sh
 # Unix
 $ cp .env.example .env
 ```
 
-2. Get an API key from [Weather API](https://www.weatherapi.com) and write it down in `WEATHER_API_KEY` variable in `.env` file.
+3. Get an API key from [Weather API](https://www.weatherapi.com) and write it down in `WEATHER_API_KEY` variable in `.env` file.
 
-3. Run CLI.
+4. Run CLI.
 ```sh
 # Directly from file
 $ node dist/index.js
