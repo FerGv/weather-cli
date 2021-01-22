@@ -30,28 +30,28 @@ $ weather-cli
 > Set city to look for weather information. Default: Dallas.
 ```sh
 $ node dist/index.js -c Mexico City
-$ node dist/index.js --city Mexico City
+$ weather-cli --city Mexico City
 ```
 
 - -e, --export
 > Export weather information as a CSV file called `weather.csv`. Default: false.
 ```sh
 $ node dist/index.js -e
-$ node dist/index.js --export
+$ weather-cli --export
 ```
 
 - -f, --filename
 > Name for exported file. Only available when export option is set. Default: weather.csv
 ```sh
 $ node dist/index.js -e -f my_custom_name.csv
-$ node dist/index.js --export --filename my_custom_name.csv
+$ weather-cli --export --filename my_custom_name.csv
 ```
 
 - -h, --help
 > Show CLI help.
 ```sh
 $ node dist/index.js -h
-$ node dist/index.js --help
+$ weather-cli --help
 ```
 
 ## Development

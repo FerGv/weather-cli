@@ -14,7 +14,7 @@ import { CsvRow } from './interfaces';
 
 // Utils
 import { exportToCsv } from './utils/file';
-import { parseArguments } from './utils/parser';
+import { parseArguments, showHelp } from './utils/parser';
 
 /**
  * Run main CLI process.
@@ -23,9 +23,14 @@ async function main() {
   clear();
   const title: string = figlet.textSync('Weather CLI');
   console.log(chalk.cyan(title));
-  const { city, export_, filename } = parseArguments(process.argv.slice(2));
-  const rows: CsvRow[] = await api.getCurrentWeather(city);
+  const { city, export_, filename, help } = parseArguments(process.argv.slice(2));
 
+  if (help) {
+    showHelp();
+    process.exit();
+  }
+
+  const rows: CsvRow[] = await api.getCurrentWeather(city);
   if (!rows.length) process.exit();
 
   console.log(table(rows));

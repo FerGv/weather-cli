@@ -56,12 +56,15 @@ export interface MinimistArgv extends ParsedArgs {
   export?: boolean;
   f?: string;
   filename?: string;
+  h?: boolean;
+  help?: boolean;
 }
 
 export interface Argv {
   city: string;
   export_: boolean;
   filename: string;
+  help: boolean;
 }
 
 export type CsvRow = (string | number | boolean)[];
